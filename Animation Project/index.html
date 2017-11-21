@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body {
+			background-image: url("sunny.jpg");
+			background-size:cover;
+		}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+
+	#myContainer{
+		width: auto 0;
+		height: 220px;
+		position: relative;
+		
+	}	
+	#myAnimation{
+		width: 75px;
+		height: 100px;
+		position: absolute;
+		background-color: transparent;
+	}
+</style>
+</head>
+<body onload="move()">
+
+<ul>
+  <li><a href="">Basketball Home</a></li>
+  <li><a href="">Basketball News</a></li>
+  <li><a href="">Contact Me</a></li>
+  <li><a href="">About Me</a></li>
+</ul>
+
+
+
+
+	<div id="myContainer">
+		<center><div id="myAnimation">
+			<a href="http://www.nba.com/#/">
+			<img src="basketball.jpeg" alt="Try to touch me!"></a>
+		</div></center>
+	</div>
+	<p id="touch">
+		<center>Touch the ball!</center>		
+		<br><center>
+		<iframe src="https://giphy.com/embed/3ohfFzctWL6HjRJu12" width="480" height="355" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/seeta-aur-geeta-hema-malani-3ohfFzctWL6HjRJu12">via GIPHY</a></center></p>
+
+
+	</p>
+	<script type="text/javascript">
+		function move(){
+			var elem = document.getElementById('myAnimation');
+			var pos = 0;
+			//variable tpos -> value for top position
+			//variable lpos -> value for left position	
+			var tpos = 0;
+			var lpos = 0;
+			//store setInterval in a variable --> calls frame function every 5 milliseconds 
+			var id = setInterval(frame,5);
+				//function frame moves div to each corner of square
+				function frame(){
+					pos++;
+					//between 0 and 350 increment lpos by 1
+					if(pos <= 950){
+						lpos++;
+						elem.style.left = lpos+'px';
+					}
+					else if(pos <= 2000){
+						lpos--;
+						elem.style.left = lpos+'px';
+					}
+
+					if (lpos==0) {
+						clearInterval(id);
+					}
+
+				}//frame
+				 setTimeout(move, 9500);
+
+		}//move
+
+		
+
+	</script>
+</body>
+</html>
